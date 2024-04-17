@@ -1,0 +1,12 @@
+{
+    "extends": "../tsconfig.json",
+    "include": [
+        "next-env.d.ts",
+        "**/*.ts",
+        "**/*.tsx",
+        "renderer/@types/*.d.ts",
+        ".next/types/**/*.ts",
+        "node_modules/lucide-react/dist/*.d.ts"
+    ],
+    "exclude": ["node_modules"]
+}
