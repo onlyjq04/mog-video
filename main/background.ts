@@ -2,6 +2,7 @@ import path from 'path'
 import { app, ipcMain } from 'electron'
 import serve from 'electron-serve'
 import { createWindow } from './helpers'
+import db from './db'
 
 const isProd = process.env.NODE_ENV === 'production'
 
@@ -37,4 +38,10 @@ app.on('window-all-closed', () => {
 
 ipcMain.on('message', async (event, arg) => {
     event.reply('message', `${arg} World!`)
+})
+
+ipcMain.on('query-database', (event, arg) => {
+    db.all('SELECT info FROM user_data', [], (err, rows) => {
+        event.reply('query-result', rows)
+    })
 })

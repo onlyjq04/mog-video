@@ -9,4 +9,7 @@ files:
       filter:
           - package.json
           - app
+extraResources:
+    - './node_modules/.prisma/**'
+    - './node_modules/@prisma/**'
 publish: null
